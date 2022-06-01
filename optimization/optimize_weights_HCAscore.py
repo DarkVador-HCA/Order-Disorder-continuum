@@ -30,7 +30,7 @@ def compare_distrib(Z1, Z2):
 
 def prepare_sequence(seq):
     """
-    compute score for a given sequence
+    identify hydrophobic clusters in the sequence
     """
     size = len(seq)
     hcaprot = HCA(seq=seq)
@@ -46,7 +46,6 @@ def prepare_sequence(seq):
             for i, aa in enumerate(seq[clust.start: clust.stop]):
                 if aa not in set_AA1:
                     aa = "X"
-                    print("Pourquoi?")
                 if clust.hydro_cluster[i] == 1:
                     # in a cluster and is hydrophobe, increase b, decrease a
                     residues_b += 1

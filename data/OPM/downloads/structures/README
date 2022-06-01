@@ -1,0 +1,8 @@
+Missing for now: PDB files for each OPM categories (polytopic,bitopic,beta)
+To download them :
+wget https://storage.googleapis.com/opm-assets/pdb/tar_files/Alpha-helical_polytopic.tar.gz
+wget https://storage.googleapis.com/opm-assets/pdb/tar_files/Beta-barrel_transmembrane.tar.gz
+wget https://storage.googleapis.com/opm-assets/pdb/tar_files/Bitopic_proteins.tar.gz
+tar -zxvf Alpha-helical_polytopic.tar.gz -C polyotpic
+tar -zxvf Beta-barrel_transmembrane.tar.gz -C beta
+tar -zxvf Bitopic_proteins.tar.gz -C bitopic

@@ -1,0 +1,10 @@
+DBdir : ../../data/
+DB :
+  - OPM
+  - SCOPe
+  - DisProt
+mmseqs_cov: 0.9
+mmseqs_id: 0.3
+mmseqs_mode : 1
+mmseqs_s : 8
+mmseqs_seqs : 1000

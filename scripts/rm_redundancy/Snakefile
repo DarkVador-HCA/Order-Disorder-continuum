@@ -1,0 +1,35 @@
+configfile:"config.yaml"
+
+rule all :
+    input :expand(config["DBdir"]+"{db}/nr_sequences.fasta",db=config["DB"])
+
+rule redundancy_intra:
+    input: config["DBdir"]+"{db}/downloads/sequences.fasta"
+    output:
+        clus=config["DBdir"]+"{db}/downloads/clusters.tsv",
+        fasta=temp("temp/{db}_sequences.fasta"),
+        wd=temp("mmseqs_{db}")
+    params:
+        cov=config["mmseqs_cov"],
+        id=config["mmseqs_id"],
+        clumode=config["mmseqs_mode"],
+        sensi=config["mmseqs_s"],
+        nbseqs=config["mmseqs_seqs"]
+    shell:" ./rm_redondance_intraDB.sh -c {params.cov} -i {params.id} -m {params.clumode} -s {params.sensi} -n {params.nbseqs} -a {output.clus} -o {output.fasta} -f {input} -d {output.wd}"
+
+rule redundancy_inter:
+    input : expand("temp/{db}_sequences.fasta",db=config['DB'])
+    output : "data/clusters_ALL.tsv"
+    params:
+        cov=config["mmseqs_cov"],
+        id=config["mmseqs_id"],
+        clumode=config["mmseqs_mode"],
+        sensi=config["mmseqs_s"],
+        nbseqs=config["mmseqs_seqs"]
+    # shell : "./redundancy_between_db.sh -c {params.cov} -i {params.id} -m {params.clumode} -o {output} -i "+" ".join(config["DB"])
+    shell : "./redundancy_between_db.sh -c {params.cov} -i {params.id} -m {params.clumode} -s {params.sensi} -n {params.nbseqs} -o {output} -d \""+" ".join(config["DB"])+"\""
+
+rule final_fasta:
+    input : clus="data/clusters_ALL.tsv", seqs=expand("temp/{db}_sequences.fasta",db=config["DB"])
+    output: expand(config["DBdir"]+"{db}/nr_sequences.fasta",db=config["DB"])
+    script:"./final_fasta.py"

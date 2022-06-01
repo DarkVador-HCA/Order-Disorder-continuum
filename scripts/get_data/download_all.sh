@@ -20,6 +20,7 @@ cd $curr_dir
 # To download latest to this date (31 May 2022):
 cd ../../data/SCOPe/downloads/
 wget https://scop.berkeley.edu/downloads/scopeseq-2.08/astral-scopedom-seqres-gd-sel-gs-bib-95-2.08.fa
+mv  astral-scopedom-seqres-gd-sel-gs-bib-95-2.08.fa astral_95.fasta
 cd $curr_dir
 
 # Download latest OPM
