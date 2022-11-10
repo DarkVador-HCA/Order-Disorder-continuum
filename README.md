@@ -1,7 +1,7 @@
 # Code and data from the manuscript
 
-#### **Disentangling the Protein Order/Disorder Continuum Using a Sequence-Based Foldability Score** by *Apolline Bruley, Tristan Bittard-Feildel ,  Isabelle Callebaut, Elodie Duprat*
-**Manuscript available *[here](https://dx.doi.org/10.2139/ssrn.4116299)*.**
+#### **A sequence-based foldability score combined with AlphaFold2 predictions to disentangle the protein order/disorder continuum** by *Apolline Bruley, Tristan Bitard-Feildel ,  Isabelle Callebaut, Elodie Duprat*
+**Manuscript available *[here](http://doi.org/10.1002/prot.26441)*.**
 
 # HCA score implementation
 Data and scripts used for the HCA score implamentation can be found in **optimization**.
