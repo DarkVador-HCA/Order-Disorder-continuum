@@ -36,7 +36,12 @@ snakemake
 cd data/$DB/ # DB can take the value SCOPe, OPM or DisProt
 hcatk segment -m domain -i nr_sequences.fasta -o hca.out
 ```
-The scripts allowing the analysis of this data as presented in the article are yet to be added on this repository.
+The scripts allowing the generation of the datasets S2 and S3 can be found in scripts/make_tables/ref_databases/.
+
+The HCA score distributions for the reference database (figure 1) are represented on the notebook plot_HCAscore.ipynb. The detail behind this representation can be found in scripts/make_plots/hcascore_distributions.py.
 
 # Leveraging AlphaFold2 predictions with pyHCA package
-To come very soon!
+
+The scripts allowing the generation of the dataset S4 from the AlphaFold Protein Database (from the sequences.fasta and PDB files) can be found in scripts/make_tables/AF2_databases/.
+
+The barplots (figure 5) are represented in the notebook plot_HCAscore.ipynb. The detail behind this representation can be found in scripts/make_plots/AF2_database/mk_barplot.py .
